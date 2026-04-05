@@ -27,7 +27,9 @@ def health_check():
     return {"status": "ok"}
 
 
-from app.routers import patients, assessments
+from app.routers import patients, assessments, export, pdf
 
 app.include_router(patients.router)
 app.include_router(assessments.router)
+app.include_router(export.router)
+app.include_router(pdf.router)
