@@ -3,8 +3,15 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
+from app.db.database import engine, Base
+from app.db.models import PatientModel, AssessmentModel  # noqa: F401
 
 app = FastAPI(title="Nutrition Assessment Tool API")
+
+
+@app.on_event("startup")
+def on_startup():
+    Base.metadata.create_all(bind=engine)
 
 app.add_middleware(
     CORSMiddleware,
