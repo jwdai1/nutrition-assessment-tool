@@ -14,8 +14,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ja">
       <body className={`${inter.className} bg-gray-50 min-h-screen`}>
         <header className="bg-[#1a56a4] text-white px-6 py-3">
-          <h1 className="text-lg font-bold">低栄養診断ツール</h1>
-          <p className="text-sm text-blue-200">MNA-SF / GLIM Nutrition Assessment</p>
+          <a href="/patients" className="inline-block hover:opacity-80 transition-opacity">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-lg bg-white/20 flex items-center justify-center text-sm font-bold">
+                N
+              </div>
+              <div>
+                <h1 className="text-lg font-bold leading-tight">低栄養診断ツール</h1>
+                <p className="text-xs text-blue-200">MNA-SF / GLIM Nutrition Assessment</p>
+              </div>
+            </div>
+          </a>
         </header>
         <main className="max-w-6xl mx-auto px-4 py-6">{children}</main>
       </body>

@@ -63,7 +63,7 @@ export default function PatientDetailPage() {
               <PatientForm patient={patient} onSaved={() => { setEditOpen(false); load(); }} />
             </DialogContent>
           </Dialog>
-          <Button variant="destructive" onClick={handleDelete}>削除</Button>
+          <Button variant="outline" className="text-red-500 border-red-200 hover:bg-red-50" onClick={handleDelete}>削除</Button>
         </div>
       </div>
 

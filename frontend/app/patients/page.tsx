@@ -33,6 +33,10 @@ export default function PatientsPage() {
 
   return (
     <div className="space-y-4">
+      <div className="flex items-center justify-between">
+        <h2 className="text-xl font-bold">患者一覧</h2>
+        <span className="text-sm text-gray-500">{patients.length}名</span>
+      </div>
       <div className="flex items-center justify-between gap-4">
         <Input
           placeholder="患者ID または 氏名で検索..."
@@ -85,8 +89,11 @@ export default function PatientsPage() {
               ))}
               {patients.length === 0 && (
                 <TableRow>
-                  <TableCell colSpan={5} className="text-center text-gray-400 py-8">
-                    患者が登録されていません
+                  <TableCell colSpan={5} className="text-center py-16">
+                    <div className="text-gray-400 space-y-2">
+                      <p className="text-lg">患者が登録されていません</p>
+                      <p className="text-sm">「＋ 患者追加」ボタンから最初の患者を登録してください</p>
+                    </div>
                   </TableCell>
                 </TableRow>
               )}

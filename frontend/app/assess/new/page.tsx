@@ -62,13 +62,20 @@ function WizardContent() {
     router.push(`/assess/${result.id}`);
   };
 
+  const stepLabels = skipGlim
+    ? ["基本情報", "MNA-SF"]
+    : ["基本情報", "MNA-SF", "GLIM"];
+
   return (
     <div className="max-w-2xl mx-auto space-y-4">
-      <div className="flex items-center justify-center gap-2 text-sm">
-        {Array.from({ length: totalSteps }, (_, i) => (
-          <div key={i} className="flex items-center gap-2">
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= i + 1 ? "bg-[#1a56a4] text-white" : "bg-gray-200 text-gray-500"}`}>{i + 1}</div>
-            {i < totalSteps - 1 && <div className="w-8 h-px bg-gray-300" />}
+      <div className="flex items-center justify-center gap-1 text-sm">
+        {stepLabels.map((label, i) => (
+          <div key={i} className="flex items-center gap-1">
+            <div className="flex flex-col items-center gap-1">
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= i + 1 ? "bg-[#1a56a4] text-white" : "bg-gray-200 text-gray-500"}`}>{i + 1}</div>
+              <span className={`text-xs ${step >= i + 1 ? "text-[#1a56a4] font-medium" : "text-gray-400"}`}>{label}</span>
+            </div>
+            {i < stepLabels.length - 1 && <div className="w-12 h-px bg-gray-300 mb-5" />}
           </div>
         ))}
       </div>

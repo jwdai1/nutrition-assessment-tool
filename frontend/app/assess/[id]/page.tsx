@@ -33,7 +33,13 @@ export default function AssessmentResultPage() {
 
   return (
     <div className="max-w-2xl mx-auto space-y-4">
-      <Link href={`/patients/${a.patient_id}`} className="text-sm text-gray-500 hover:underline">← 患者詳細に戻る</Link>
+      <nav className="flex items-center gap-1 text-sm text-gray-500">
+        <Link href="/patients" className="hover:underline">患者一覧</Link>
+        <span>/</span>
+        <Link href={`/patients/${a.patient_id}`} className="hover:underline">患者詳細</Link>
+        <span>/</span>
+        <span className="text-gray-800">評価結果</span>
+      </nav>
       <h2 className="text-xl font-bold">評価結果 — {a.assess_date}</h2>
 
       {/* Diagnosis banner */}
